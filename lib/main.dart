@@ -39,19 +39,47 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(title)),
-      body:  Center(child: Image.asset("abc.png")),
+        appBar: AppBar(title: Text(title)),
+        body: ProductBox(
+          title: "Product1",
+        ));
+  }
+}
+
+class ProductBox extends StatelessWidget {
+  const ProductBox({Key? key, required this.title}) : super(key: key);
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(2),
+      height: 120,
+      child: Card(
+          child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+            Image.asset("box.png"),
+            Expanded(
+                child: Container(
+              padding: EdgeInsets.all(5),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[Text("Smas"), Text("Smas"), Text("Smas")],
+              ),
+            ))
+          ])),
     );
   }
 }
 
 // class MyButton extends StatelessWidget{
 //   MyButton({Key? key}) : super(key: key);
-//   @override 
+//   @override
 //   Widget build(BuildContext context){
 //     return Container(
 //       decoration: const BoxDecoration(),
 //     )
 //   }
 // }
-
